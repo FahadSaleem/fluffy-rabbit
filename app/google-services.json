@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "854503420814",
+    "firebase_url": "https://sixbee-db7e7.firebaseio.com",
+    "project_id": "sixbee-db7e7",
+    "storage_bucket": "sixbee-db7e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854503420814:android:c6365002da7ad2b3",
+        "android_client_info": {
+          "package_name": "com.example.fahadsaleem.scproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "854503420814-h6i0dcnldnqs9mdpie8j2ng3ugoau618.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "854503420814-h6i0dcnldnqs9mdpie8j2ng3ugoau618.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5eOVMSTxxlBl1pVaEnwBKbIklRHge7rs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

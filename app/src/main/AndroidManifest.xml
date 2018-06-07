@@ -28,6 +28,11 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <activity android:name=".CourseActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+
 
 
 

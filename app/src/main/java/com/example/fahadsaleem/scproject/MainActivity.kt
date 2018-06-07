@@ -83,9 +83,9 @@ class MainActivity : AppCompatActivity() {
 
                     //val userJSONObject = response.getJSONObject(response.names().getString(i))
                     val userName = response.getString("name")
-                    val userClass = response.getString("class")
-                    val userBatch = response.getString("batch")
-                    val userCGPA = response.getString("CGPA")
+                    val userClass = response.getString("yearJoined")
+                    val userBatch = response.getString("id")
+                    val userCGPA = response.getString("department")
 
                     val gender = response.getString("gender")
                 if (gender=="f"){
@@ -104,16 +104,16 @@ class MainActivity : AppCompatActivity() {
                     activityMainClass.append(userClass)
 
                     val activityMainCGPA = findViewById<TextView>(R.id.activity_main_profile_cgpa)
-                    activityMainCGPA.append(userCGPA)
+                    activityMainCGPA.append(userBatch)
 
                     val activityMainBatch = findViewById<TextView>(R.id.activity_main_profile_batch)
-                    activityMainBatch.append(userBatch)
+                    activityMainBatch.append(userCGPA)
 
                     val activityMainCourses = findViewById<TextView>(R.id.activity_main_courses_total)
-                    activityMainCourses.append(coursesJSONObject.names().length().toString())
+                    activityMainCourses.append(coursesJSONObject.getJSONObject("course1").getString("courseName"))
 
                     val activityMainCreditHours = findViewById<TextView>(R.id.activity_main_courses_credithours)
-                    activityMainCreditHours.append("10")
+                    activityMainCreditHours.append(coursesJSONObject.getJSONObject("course1").getString("courseCreditHours"))
 
 
 

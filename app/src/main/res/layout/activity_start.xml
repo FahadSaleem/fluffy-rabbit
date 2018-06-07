@@ -6,24 +6,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
-        android:layout_marginRight="50dp"
         android:gravity="center"
-        android:paddingRight="50dp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="100dp"
             android:layout_height="90dp"
-            android:src="@drawable/sixbee_logo"/>
+            android:src="@drawable/ic_grades"/>
 
 
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Sixbee's CMS"
+        android:text="Employee Management System"
         android:layout_marginTop="15dp"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
@@ -34,14 +31,12 @@
         android:id="@+id/activity_start_button_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:padding="16.5dp"
-        android:text="Log in as a student"
-        android:background="@drawable/custombutton"
         android:layout_gravity="center"
-        android:textColor="@color/colorPrimary"/>
-
-
+        android:layout_marginTop="45dp"
+        android:background="@drawable/custombutton"
+        android:padding="16.5dp"
+        android:text="Log in as a Teacher"
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:layout_width="wrap_content"

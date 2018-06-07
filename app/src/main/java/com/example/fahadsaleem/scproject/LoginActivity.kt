@@ -57,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
 
                         }
                         else {
-                           // Toast.makeText(this@LoginActivity,"Not Validated", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@LoginActivity,"Not Validated", Toast.LENGTH_LONG).show()
                         }
 
 

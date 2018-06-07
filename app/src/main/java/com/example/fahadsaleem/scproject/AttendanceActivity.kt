@@ -15,6 +15,7 @@ import cz.msebera.android.httpclient.entity.StringEntity
 import android.preference.PreferenceManager
 import android.content.SharedPreferences
 import android.graphics.Typeface
+import android.support.design.widget.FloatingActionButton
 import android.support.v7.widget.CardView
 import android.util.TypedValue
 import android.widget.LinearLayout
@@ -73,6 +74,13 @@ class AttendanceActivity : AppCompatActivity() {
 
         val rootLinearLayout = findViewById<LinearLayout>(R.id.rootLayout)
 
+        val floatingButton = findViewById<FloatingActionButton>(R.id.course_add_button)
+
+        floatingButton.setOnClickListener {
+            startActivity(Intent(this@AttendanceActivity, CourseActivity::class.java))
+
+
+        }
 
 
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
@@ -89,10 +97,10 @@ class AttendanceActivity : AppCompatActivity() {
             override fun onSuccess(statusCode: Int, headers: Array<Header>, response: JSONObject) {
 
                 //val userJSONObject = response.getJSONObject(response.names().getString(i))
-                val userName = response.getString("name")
-                val userClass = response.getString("class")
-                val userBatch = response.getString("batch")
-                val userCGPA = response.getString("CGPA")
+//                val userName = response.getString("name")
+  //              val userClass = response.getString("class")
+    //            val userBatch = response.getString("batch")
+      //          val userCGPA = response.getString("CGPA")
 
 
                 val coursesJSONObject = response.getJSONObject("courses")
@@ -137,10 +145,10 @@ class AttendanceActivity : AppCompatActivity() {
 
                     val courseName = TextView(this@AttendanceActivity)
                     val courseCreditHours = TextView(this@AttendanceActivity)
-                    val courseGrade = TextView(this@AttendanceActivity)
-                    val coursePresents= TextView(this@AttendanceActivity)
-                    val courseAttendance = TextView(this@AttendanceActivity)
-                    val courseAbsents = TextView(this@AttendanceActivity)
+                    val labAttendant = TextView(this@AttendanceActivity)
+                  //  val coursePresents= TextView(this@AttendanceActivity)
+                    val courseID = TextView(this@AttendanceActivity)
+                    val consultingDays = TextView(this@AttendanceActivity)
 
 
                     val params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
@@ -158,33 +166,28 @@ class AttendanceActivity : AppCompatActivity() {
                     courseCreditHours.setTextColor(resources.getColor(R.color.colorPrimary))
                     courseCreditHours.setLayoutParams(params)
 
-                    courseGrade.setText("Grade Aggregate: " +individualCourseObject.getString("courseGrade"))
-                    courseGrade.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
-                    courseGrade.setTextColor(resources.getColor(R.color.colorPrimary))
-                    courseGrade.setLayoutParams(params)
+                    labAttendant.setText("Lab Attendant: " +individualCourseObject.getString("labAssistant"))
+                    labAttendant.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
+                    labAttendant.setTextColor(resources.getColor(R.color.colorPrimary))
+                    labAttendant.setLayoutParams(params)
 
-                    coursePresents.setText("Presents: " +individualCourseObject.getString("presents"))
-                    coursePresents.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
-                    coursePresents.setTextColor(resources.getColor(R.color.colorPrimary))
-                    coursePresents.setLayoutParams(params)
+                    courseID.setText("Course ID: " +individualCourseObject.getString("courseID"))
+                    courseID.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
+                    courseID.setTextColor(resources.getColor(R.color.colorPrimary))
+                    courseID.setLayoutParams(params)
 
-                    courseAttendance.setText("Attendance: " +individualCourseObject.getString("courseAttendance") + "%")
-                    courseAttendance.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
-                    courseAttendance.setTextColor(resources.getColor(R.color.colorPrimary))
-                    courseAttendance.setLayoutParams(params)
-
-                    courseAbsents.setText("Absents: " +individualCourseObject.getString("absents"))
-                    courseAbsents.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
-                    courseAbsents.setTextColor(resources.getColor(R.color.colorPrimary))
-                    courseAbsents.setLayoutParams(params)
+                    consultingDays.setText("Consulting Days: " +individualCourseObject.getString("consultingDays"))
+                    consultingDays.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
+                    consultingDays.setTextColor(resources.getColor(R.color.colorPrimary))
+                    consultingDays.setLayoutParams(params)
 
 
                    // LL.addView(courseName)
-                    LL.addView(courseGrade)
+                    LL.addView(labAttendant)
                     LL.addView(courseCreditHours)
-                    LL.addView(courseAttendance)
-                    LL.addView(coursePresents)
-                    LL.addView(courseAbsents)
+                    LL.addView(courseID)
+                 //   LL.addView(coursePresents)
+                    LL.addView(consultingDays)
 
                     cardView.addView(LL)
                     rootLinearLayout.addView(courseName)

@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="Sixbee's CMS"
+                android:text="Employee Management System"
                 android:textSize="15sp"
                 android:layout_marginLeft="5dp"
                 android:textColor="#FFFFFF" />
@@ -53,38 +53,39 @@
 
         <Button
             android:id="@+id/main_nav_placeOrder"
-            android:layout_width="75dp"
+            android:layout_width="105dp"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_gravity="start"
             android:background="@drawable/custombutton"
-            android:drawableTop="@drawable/ic_honey_bee"
+            android:drawableTop="@drawable/ic_grades"
             android:text="Home" />
 
         <Button
             android:id="@+id/main_nav_orderList"
-            android:layout_width="120dp"
+            android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:background="@drawable/custombutton"
-            android:drawableTop="@drawable/ic_courses"
+            android:drawableTop="@drawable/course"
             android:text="Courses" />
 
         <Button
             android:id="@+id/main_nav_yourOrders"
-            android:layout_width="75dp"
+            android:layout_width="105dp"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_gravity="end"
             android:background="@drawable/custombutton"
-            android:drawableTop="@drawable/ic_grades"
+            android:drawableTop="@drawable/department"
             android:paddingLeft="0dp"
             android:paddingRight="0dp"
-            android:text="GPA" />
+            android:text="Department" />
     </RelativeLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -101,9 +102,32 @@
             android:orientation="vertical">
 
 
-
         </LinearLayout>
     </ScrollView>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/framelayout"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_bottom_navBar"
+        android:layout_margin="30dp"
+        android:layout_alignParentRight="true">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="50dp"
+            android:id="@+id/course_add_button"
+            android:layout_height="50dp"
+            android:src="@android:color/transparent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="ADD"
+            android:elevation="16dp"
+            android:textColor="@android:color/white"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </FrameLayout>
 
 
 

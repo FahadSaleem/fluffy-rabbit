@@ -22,8 +22,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import org.w3c.dom.Text
 import android.graphics.Paint.UNDERLINE_TEXT_FLAG
-
-
+import android.opengl.Visibility
+import android.support.design.widget.FloatingActionButton
+import android.view.View
 
 
 class GPAActivity : AppCompatActivity() {
@@ -79,7 +80,9 @@ class GPAActivity : AppCompatActivity() {
         val rootLinearLayout = findViewById<LinearLayout>(R.id.rootLayout)
 
 
+        val floatingButton = findViewById<FloatingActionButton>(R.id.course_add_button)
 
+        floatingButton.visibility = View.GONE
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
         val userNumber = preferences.getString("userNumber", "")
     //    Toast.makeText(this@AttendanceActivity,"was called in main, number= " +userNumber,Toast.LENGTH_LONG).show()
@@ -95,16 +98,17 @@ class GPAActivity : AppCompatActivity() {
 
                 //val userJSONObject = response.getJSONObject(response.names().getString(i))
 
-                val userCGPA = response.getString("CGPA")
-                val semesterOne = response.getString("gpaSemester1")
-                val semesterTwo = response.getString("gpaSemester2")
-                val semesterThree = response.getString("gpaSemester3")
+                val departmentName = response.getString("department")
+                val campus = response.getString("campus")
+                val salary = response.getString("salary")
+                val designation = response.getString("designation")
+                val residence = response.getString("residence")
 
 
 
 
 
-                val coursesJSONObject = response.getJSONObject("courses")
+               // val coursesJSONObject = response.getJSONObject("courses")
 
 
 /*
@@ -144,11 +148,11 @@ class GPAActivity : AppCompatActivity() {
               //     val individualCourseObject = coursesJSONObject.getJSONObject(coursesJSONObject.names().getString(i))
 
                     val heading = TextView(this@GPAActivity)
-                    val CGPA = TextView(this@GPAActivity)
-                    val one = TextView(this@GPAActivity)
-                    val lineUnderneath = TextView(this@GPAActivity)
-                    val two = TextView(this@GPAActivity)
-                    val three= TextView(this@GPAActivity)
+                    val department = TextView(this@GPAActivity)
+                    val campusName = TextView(this@GPAActivity)
+                    val residenceTV = TextView(this@GPAActivity)
+                    val salaryAmount = TextView(this@GPAActivity)
+                    val designationName= TextView(this@GPAActivity)
                     //val courseAttendance = TextView(this@AttendanceActivity)
                     //val courseAbsents = TextView(this@AttendanceActivity)
 
@@ -157,45 +161,50 @@ class GPAActivity : AppCompatActivity() {
                     params.setMargins(10, 10, 10, 10)
 
 
-                    CGPA.text = "Current CGPA = " + userCGPA
-                    CGPA.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
-                    CGPA.setTextColor(resources.getColor(R.color.colorPrimary))
-                    CGPA.setLayoutParams(params)
+                    department.text = "Department: " + departmentName
+                    department.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
+                    department.setTextColor(resources.getColor(R.color.colorPrimary))
+                    department.setLayoutParams(params)
 
-                    one.text = "First Semester = " + semesterOne
-                    one.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
-                    one.setTextColor(resources.getColor(R.color.colorPrimary))
-                    one.setLayoutParams(params)
+                    campusName.text = "Campus: " + campus
+                    campusName.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
+                    campusName.setTextColor(resources.getColor(R.color.colorPrimary))
+                    campusName.setLayoutParams(params)
 
-                    two.text ="Second Semester = " + semesterTwo
-                    two.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
-                    two.setTextColor(resources.getColor(R.color.colorPrimary))
-                    two.setLayoutParams(params)
+                    residenceTV.text = "Residence: " + residence
+                    residenceTV.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F)
+                    residenceTV.setTextColor(resources.getColor(R.color.colorPrimary))
+                    residenceTV.setLayoutParams(params)
 
-                    three.text ="Third Semester = " + semesterThree
-                    three.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
-                    three.setTextColor(resources.getColor(R.color.colorPrimary))
-                    three.setLayoutParams(params)
+                    salaryAmount.text ="Salary: " + salary
+                    salaryAmount.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
+                    salaryAmount.setTextColor(resources.getColor(R.color.colorPrimary))
+                    salaryAmount.setLayoutParams(params)
 
-                    heading.setText("GPA Information")
+                    designationName.text ="Designation: " + designation
+                    designationName.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
+                    designationName.setTextColor(resources.getColor(R.color.colorPrimary))
+                    designationName.setLayoutParams(params)
+
+                    heading.setText("Profile and Department Info")
                     heading.setTextSize(TypedValue.COMPLEX_UNIT_SP,22F);
-                    heading.setTypeface(CGPA.getTypeface(), Typeface.BOLD_ITALIC)
+                    heading.setTypeface(department.getTypeface(), Typeface.BOLD_ITALIC)
                     heading.setTextColor(resources.getColor(R.color.colorPrimary))
                     heading.setLayoutParams(params)
+/*
+                    salary.setText("Click here for viewing each courses's grades")
+                    salary.setTextSize(TypedValue.COMPLEX_UNIT_SP,14F);
+                    salary.setTypeface(department.getTypeface(), Typeface.BOLD)
+                    salary.setTextColor(resources.getColor(R.color.colorPrimary))
+                    salary.setLayoutParams(params)
+                    salary.setPaintFlags(salary.getPaintFlags() or Paint.UNDERLINE_TEXT_FLAG)
 
-                    lineUnderneath.setText("Click here for viewing each courses's grades")
-                    lineUnderneath.setTextSize(TypedValue.COMPLEX_UNIT_SP,14F);
-                    lineUnderneath.setTypeface(CGPA.getTypeface(), Typeface.BOLD)
-                    lineUnderneath.setTextColor(resources.getColor(R.color.colorPrimary))
-                    lineUnderneath.setLayoutParams(params)
-                    lineUnderneath.setPaintFlags(lineUnderneath.getPaintFlags() or Paint.UNDERLINE_TEXT_FLAG)
-
-                lineUnderneath.setOnClickListener {
+                salary.setOnClickListener {
                     startActivity(Intent(this@GPAActivity, AttendanceActivity::class.java))
 
                 }
 
-
+*/
 /*
                     courseAttendance.setText("Attendance: " +individualCourseObject.getString("courseAttendance") + "%")
                     courseAttendance.setTextSize(TypedValue.COMPLEX_UNIT_SP,17F);
@@ -209,16 +218,17 @@ class GPAActivity : AppCompatActivity() {
 
 */
                     // LL.addView(courseName)
-                    LL.addView(CGPA)
-                    LL.addView(one)
-                    LL.addView(two)
-                    LL.addView(three)
+                    LL.addView(department)
+                    LL.addView(campusName)
+                    LL.addView(salaryAmount)
+                    LL.addView(designationName)
+                LL.addView(residenceTV)
 
 
                     cardView.addView(LL)
                     rootLinearLayout.addView(heading)
                     rootLinearLayout.addView(cardView)
-                rootLinearLayout.addView(lineUnderneath)
+             //   rootLinearLayout.addView(salary)
 
 
 
